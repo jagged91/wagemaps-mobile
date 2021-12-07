@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId "com.wagemaps.mobile"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
