@@ -18,6 +18,21 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 14.4746,
   );
 
+  List<Marker> markers = [
+    const Marker(
+        flat: true,
+        icon: BitmapDescriptor.defaultMarker,
+        infoWindow: InfoWindow(title: "Google Pizza", snippet: "\$16 / hr"),
+        markerId: MarkerId("1"),
+        position: LatLng(37.42796133580664, -122.085749655962))
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +41,11 @@ class _MapScreenState extends State<MapScreen> {
         title: Text("Wagemaps"),
       ),
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
+        zoomControlsEnabled: false,
+        myLocationButtonEnabled: false,
+        mapToolbarEnabled: false,
+        markers: markers.toSet(),
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
